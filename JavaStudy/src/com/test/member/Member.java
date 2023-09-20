@@ -2,6 +2,7 @@ package com.test.member;
 
 public class Member {
 
+    private int id;
     private String name; // 멤버변수
     private String gender;
     private int age;
@@ -17,13 +18,18 @@ public class Member {
         System.out.println("인자가 하나인 생성자를 통해 객체가 생성 되었습니다.");
     }
 
-    public Member(String name, String gender, int age) { // 지역변수,매개변수,파라미터
+    public Member(int id, String name, String gender, int age) { // 지역변수,매개변수,파라미터
+        this.id = id;
         this.name = name;
         this.gender = gender;
         this.age = age;
 
         // System.out.println("멤버 변수가 초기화 되었습니다.");
     } // 인자가 3개인 생성자 정의
+
+    public int getId() {
+        return this.id;
+    }
 
     public String getName() {
         return this.name;

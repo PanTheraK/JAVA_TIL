@@ -54,4 +54,38 @@ public class Member {
     public void setAge(int age) {
         this.age = age;
     }
+
+    // Builder 패턴
+    public static class Builder {
+        private int id;
+        private String name;
+        private String gender;
+        private int age;
+
+        public Builder id(int id) {
+            this.id = id;
+            return this; // 메소드 종료 후 내부 클래스인 Builder 클래스가 종료 되는 걸 방지한다
+        }
+
+        public Builder name(String name) {
+            this.name = name;
+            return this;
+        }
+
+        public Builder gender(String gender) {
+            this.gender = gender;
+            return this;
+        }
+
+        public Builder age(int age) {
+            this.age = age;
+            return this;
+        }
+
+        public Member build() {
+            if (id == 0 || name == null || gender == null || age == 0)
+                throw new IllegalStateException("멤버 클래스에 값이 없습니다.");
+            return new Member(id, name, gender, age);
+        }
+    }
 }
